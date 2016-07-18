@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="90dp"
+    android:orientation="vertical">
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buscar por nombre:"
+            android:textColor="#000000"></TextView>
+
+        <EditText
+            android:id="@+id/txtProducto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"></EditText>
+    </TableRow>
+
+
+    <TableRow>
+
+        <Button
+            android:id="@+id/btnBuscar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="buscarProductos"
+            android:layout_span="2"
+            android:layout_weight="1"
+            android:text="Buscar"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ListView
+            android:id="@+id/lstProductos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_span="2"/>
+    </TableRow>
+
+</TableLayout>
