@@ -8,7 +8,6 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
-import android.app.Activity;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.Menu;
@@ -153,10 +152,7 @@ public class TiendaSOAPClienteActivity extends AppCompatActivity {
 
                 runOnUiThread(new Runnable() {
                     public void run() {
-                        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(
-                                TiendaSOAPClienteActivity.this,
-                                android.R.layout.simple_list_item_1,
-                                listaClientes);
+                        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(TiendaSOAPClienteActivity.this, android.R.layout.simple_list_item_1, listaClientes);
                         lstProductos.setAdapter(adaptador);
                     }
                 });

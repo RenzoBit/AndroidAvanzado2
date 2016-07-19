@@ -37,31 +37,28 @@ public class AvisoRegistrarActivity extends AppCompatActivity {
         new HttpREST().execute();
     }
 
-
     private class HttpREST extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... arg0) {
             Log.i("===>", "Dentro de doInBackground()");
             try {
-                HttpRequest httpRequest = HttpRequest.post("http://renzovilela.tk/rest/index.php/avisos");
+                HttpRequest httpRequest = HttpRequest.post("http://renzovilela.tk/rest/avisos");
                 httpRequest.form(data);
                 String respuesta = httpRequest.body().toString();
                 Gson gson = new Gson();
-                Type stringStringMap = new TypeToken<Map<String, Object>>() {
-                }.getType();
+                Type stringStringMap = new TypeToken<Map<String, Object>>() {}.getType();
                 final Map<String, Object> retorno = gson.fromJson(respuesta, stringStringMap);
-
                 runOnUiThread(new Runnable() {
                     public void run() {
                         Toast.makeText(getApplicationContext(), "" + retorno.get("mensaje"), Toast.LENGTH_SHORT).show();
                     }
                 });
-
             } catch (Exception ex) {
                 Log.e("===>", "Error: " + ex);
             }
             return null;
         }
+
     }
 }

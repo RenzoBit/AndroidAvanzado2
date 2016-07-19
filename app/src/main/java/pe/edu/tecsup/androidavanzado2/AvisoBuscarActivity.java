@@ -37,36 +37,23 @@ public class AvisoBuscarActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... arg0) {
-
             Log.i("===>", "Dentro de doInBackground()");
             try {
-
                 final ListView lstAvisos = (ListView)findViewById(R.id.lstAvisos);
-
-                HttpRequest httpRequest = HttpRequest.get("http://renzovilela.tk/rest/index.php/avisos/" + criterioBusqueda);
-
+                HttpRequest httpRequest = HttpRequest.get("http://renzovilela.tk/rest/avisos/" + criterioBusqueda);
                 String respuesta = httpRequest.body().toString();
-
                 Log.i("===>", respuesta);
-
                 Gson gson = new Gson();
-                Type stringStringMap = new TypeToken<ArrayList<Map<String, Object>>>() {
-                }.getType();
+                Type stringStringMap = new TypeToken<ArrayList<Map<String, Object>>>() {}.getType();
                 final ArrayList<Map<String, Object>> retorno = gson.fromJson(respuesta, stringStringMap);
-
                 final String[] matriz = new String[retorno.size()];
                 int i = 0;
-
                 for (Map<String, Object> x : retorno) {
                     matriz[i++] = (String) (x.get("titulo") + " - " + x.get("fechaInicio"));
                 }
-
                 runOnUiThread(new Runnable() {
                     public void run() {
-                        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(
-                                AvisoBuscarActivity.this,
-                                android.R.layout.simple_list_item_1,
-                                matriz);
+                        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(AvisoBuscarActivity.this, android.R.layout.simple_list_item_1, matriz);
                         lstAvisos.setAdapter(adaptador);
                     }
                 });
@@ -76,6 +63,7 @@ public class AvisoBuscarActivity extends AppCompatActivity {
             }
             return null;
         }
+
     }
 
 }

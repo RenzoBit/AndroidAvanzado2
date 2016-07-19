@@ -15,7 +15,7 @@ tools:context="pe.edu.tecsup.androidavanzado2.MainActivity">
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:textSize="20sp"
-    android:text="Curso Android Avanzado" />
+    android:text="Curso Android Avanzado 2" />
 
 <Button
     android:id="@+id/btnRegistrarProducto"
